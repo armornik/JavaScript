@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site width use javaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        var answer = parseInt(Math.random() * 100);
+        var tryCount = 0;
+        var maxTryCount = 5;
+
+
+        function readInt() {
+            // Считать число введённое пользователем
+            var number = document.getElementById("userAnswer").value;
+            return parseInt(number);
+            // return +document.getElementById("userAnswer").value;
+        }
+
+        function write(text) {
+            // Изменить текст внутри элемента p с id="info"
+            document.getElementById("info").innerHTML = text;
+        }
+
+        function hide(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        function guess() {
+            tryCount++;
+
+            var userAnswer = readInt();
+            if (userAnswer == answer) {
+                write("<b>Поздравляю, вы угадали!</b>");
+                hide("button");
+                hide("userAnswer");
+            } else if (tryCount >= maxTryCount) {
+                write("Вы проиграли<br>Правильный ответ: " + answer);
+                hide("button");
+                hide("userAnswer");
+            } else if (userAnswer > answer) {
+                write("Вы ввели слишком большое число<br>Попробуйте еще раз. Введите число от 1 до 100");
+            } else if (userAnswer < answer) {
+                write("Вы ввели слишком маленькое число<br>Попробуйте еще раз. Введите число от 1 до 100");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="menu">
+        <a class="a_menu" href="index.html">Главная</a>
+        <a class="a_menu" href="puzzle.html">Загадки</a>
+        <a class="a_menu" href="guess.html">Угадай число</a>
+        <a class="a_menu" href="typing.html">Обучение слепому методу печати</a>
+    </div>
+    <div class="contentWrap">
+        <div class="contentPuzzle">
+            <div class="center">
+                <h1 class="for_h1">Игра угадайка</h1>
+                <div class="box">
+
+                    <p id="info" class="box_text">Угадайте число от 0 до 100</p>
+                    <input type="text" id="userAnswer">
+                    <br>
+                    <a href="#" onClick="guess();" id="button">Начать</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <hr>
+    <div class="footer">
+        <p>Все права защищены &copy; Константин</p>
+    </div>
+</body>
+
+</html>

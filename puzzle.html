@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site width use javaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        var score = 0;
+        function checkAnswer(inputid, answers) {
+            var userAnswer = document.getElementById(inputid).value.toLowerCase();
+            for (var i = 0; i < answers.length; i++) {
+                if (userAnswer == answers[i]) {
+                    score++;
+                    break;
+                }
+            }
+
+        }
+
+        function checkAnswers() {
+
+            checkAnswer("userAnswer1", ["сон", "сновидение"]);
+            checkAnswer("userAnswer2", ["морской", "укус акулы"]);
+            checkAnswer("userAnswer3", ["шахматный", "мертвый"]);
+
+            alert("Вы отгадали " + score + " загадок")
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="menu">
+        <a class="a_menu" href="index.html">Главная</a>
+        <a class="a_menu" href="puzzle.html">Загадки</a>
+        <a class="a_menu" href="guess.html">Угадай число</a>
+        <a class="a_menu" href="typing.html">Обучение слепому методу печати</a>
+    </div>
+    <div class="contentWrap">
+        <div class="contentPuzzle">
+            <div class="center">
+                <h1 class="for_h1">Игра в загадки</h1>
+                <div class="box">
+                    <p class="box_text">Что можно увидеть с закрытыми глазами?</p>
+                    <input type="text" id="userAnswer1">
+
+                    <p class="box_text">Какой болезнью никто не болеет на суше?</p>
+                    <input type="text" id="userAnswer2">
+
+                    <p class="box_text">Какой конь не ест овса?</p>
+                    <input type="text" id="userAnswer3">
+
+                    <br>
+
+                    <a href="#" onclick="checkAnswers();">Ответить</a>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <hr>
+    <div class="footer">
+        <p>Все права защищены &copy; Константин</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site width use javaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        function typing() {
+            function getRandomNumber(max) {
+                var rand = Math.round(Math.random() * max);
+                return rand;
+            }
+
+            function generateText(letters, lengthText) {
+                var text = "";
+                for (var i = 0; i < lengthText; i++) {
+                    var n = getRandomNumber(letters.length - 1);
+                    text = text + letters[n];
+                }
+                return text;
+            }
+
+
+            function runTraining(brief, letters, length) {
+                while (true) {
+                    alert(brief);
+
+                    var text = generateText(letters, length);
+                    var userText = prompt(text);
+                    if (userText == text) {
+                        alert("Всё верно!");
+                        break;
+                    } else
+                        alert("Вы ошиблись. Попробуйте ещё раз.");
+                }
+            }
+
+
+            alert("Вас приветствует программа по обучению слепой печати");
+
+            var brief = "Положите 4 пальца левой руки - мизинец, безымянный, средний и указательный - на клавиши ф, ы, в, а. Положите 4 пальца правой руки - мизинец, безымянный, средний и указательный - на клавиши ж, д, л, о. Запомните, что буква А находится под вашим указательным пальцем, а Ф - под мизинцем. \nТеперь неспеша набирайте текст. Постарайтесь не смотреть на клавиатуру."
+
+            runTraining(brief, ["ф", "а"], 10);
+
+            brief = "Поставьте мизинец левой руки на букву Ф, безымянный палец - на Ы, средний - на В, указательный - на А. Запомните, под какими пальцами находятся буквы Ы и В. А теперь повторяйте текст за мной:";
+
+            runTraining(brief, ["в", "ы"], 10);
+
+            brief = "Поставьте мизинец правой руки на букву Ж, безымянный палец - на Д, средний - на Л, указательный - на О. Запомните под какими пальцами находятся буквы О и Ж. А теперь повторяйте за мной."
+
+            runTraining(brief, ["о", "ж"], 10);
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="menu">
+        <a class="a_menu" href="index.html">Главная</a>
+        <a class="a_menu" href="puzzle.html">Загадки</a>
+        <a class="a_menu" href="guess.html">Угадай число</a>
+        <a class="a_menu" href="typing.html">Обучение слепому методу печати</a>
+    </div>
+    <div class="contentWrap">
+        <div class="contentPuzzle">
+            <div class="center">
+                <h1 class="for_h1">Обучение слепому методу печати</h1>
+                <div class="box">
+
+                    <p id="info" class="box_text">После нажатия кнопки - действуйте согласно всплывающим подсказкам</p>
+                    <br>
+                    <a href="#" onClick="typing();" id="button">Начать</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <hr>
+    <div class="footer">
+        <p>Все права защищены &copy; Константин</p>
+    </div>
+</body>
+
+</html>
